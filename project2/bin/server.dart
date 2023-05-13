@@ -9,16 +9,16 @@ import 'ratar.dart';
 
 // Configure routes.
 
- void main() {
-   withHotreload(() => createServer());
- }
+void main() {
+  withHotreload(() => createServer());
+}
 
- Future<HttpServer> createServer() async {
-   final ip = InternetAddress.anyIPv4;
+Future<HttpServer> createServer() async {
+  final ip = InternetAddress.anyIPv4;
 
-   final port = int.parse(Platform.environment['PORT'] ?? '8080');
-   final server = await serve(MainRoute().handler, ip, port);
-   print('Server is starting at http://${server.address.host}:${server.port}');
+  final port = int.parse(Platform.environment['PORT'] ?? '8080');
+  final server = await serve(MainRoute().handler, ip, port);
+  print('Server is starting at http://${server.address.host}:${server.port}');
 
-   return server;
- }
+  return server;
+}

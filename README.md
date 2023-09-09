@@ -1,49 +1,82 @@
-A server app built using [Shelf](https://pub.dev/packages/shelf),
-configured to enable running with [Docker](https://www.docker.com/).
 
-This sample code handles HTTP GET requests to `/` and `/echo/<message>`
+created a backend server using Dart programming language and the Shelf package to handle HTTP requests and responses. The server have endpoints to display all users, display one user by id, display one user by email, and remove one user by id.
 
-# Running the sample
 
-## Running with the Dart SDK
+1. Implemented an endpoint to display all users. This endpoint returns a JSON response containing all user objects.
+2. Implemented an endpoint to display one user by id. This endpoint accept an id parameter in the request URL and return a JSON response containing the user object with the matching id.
+3. Implemented an endpoint to display one user by email. This endpoint accept an email parameter in the request URL and return a JSON response containing the user object with the matching email.
+4. Implemented an endpoint to remove one user by id. This endpoint accept an id parameter in the request URL and remove the user object with the matching id from the repository.
 
-You can run the example with the [Dart SDK](https://dart.dev/get-dart)
-like this:
 
-```
-$ dart run bin/server.dart
-Server listening on port 8080
-```
 
-And then from a second terminal:
-```
-$ curl http://0.0.0.0:8080
-Hello, World!
-$ curl http://0.0.0.0:8080/echo/I_love_Dart
-I_love_Dart
-```
+repository data is 
 
-## Running with Docker
-
-If you have [Docker Desktop](https://www.docker.com/get-started) installed, you
-can build and run with the `docker` command:
-
-```
-$ docker build . -t myserver
-$ docker run -it -p 8080:8080 myserver
-Server listening on port 8080
-```
-
-And then from a second terminal:
-```
-$ curl http://0.0.0.0:8080
-Hello, World!
-$ curl http://0.0.0.0:8080/echo/I_love_Dart
-I_love_Dart
-```
-
-You should see the logging printed in the first terminal:
-```
-2021-05-06T15:47:04.620417  0:00:00.000158 GET     [200] /
-2021-05-06T15:47:08.392928  0:00:00.001216 GET     [200] /echo/I_love_Dart
+```dart 
+[
+  {
+    "user_id": "583c3ac3f38e84297c002546",
+    "email": "test@test.com",
+    "name": "test@test.com",
+    "given_name": "Hello",
+    "family_name": "Test",
+    "nickname": "test",
+    "last_ip": "94.121.163.63",
+    "logins_count": 15,
+    "created_at": "2016-11-28T14:10:11.338Z",
+    "updated_at": "2016-12-02T01:17:29.310Z",
+    "last_login": "2016-12-02T01:17:29.310Z",
+    "email_verified": true
+  },
+  {
+    "user_id": "583c5484cb79a5fe593425a9",
+    "email": "test1@test.com",
+    "name": "test1@test.com",
+    "given_name": "Hello1",
+    "family_name": "Test1",
+    "nickname": "test1",
+    "last_ip": "94.121.168.53",
+    "logins_count": 1,
+    "created_at": "2016-11-28T16:00:04.209Z",
+    "updated_at": "2016-11-28T16:00:47.203Z",
+    "last_login": "2016-11-28T16:00:47.203Z",
+    "email_verified": true
+  },
+  {
+    "user_id": "583c57672c7686377d2f66c9",
+    "email": "aaa@aaa.com",
+    "name": "aaa@aaa.com",
+    "given_name": "John",
+    "family_name": "Dough",
+    "nickname": "aaa",
+    "last_ip": "94.121.168.53",
+    "logins_count": 2,
+    "created_at": "2016-11-28T16:12:23.777Z",
+    "updated_at": "2016-11-28T16:12:52.353Z",
+    "last_login": "2016-11-28T16:12:52.353Z",
+    "email_verified": true
+  },
+  {
+    "user_id": "5840b954da0529cd293d76fe",
+    "email": "a@a.com",
+    "name": "a@a.com",
+    "given_name": "Jane",
+    "family_name": "Dough",
+    "nickname": "a",
+    "last_ip": "94.121.163.63",
+    "logins_count": 3,
+    "created_at": "2016-12-01T23:59:16.473Z",
+    "updated_at": "2016-12-01T23:59:53.474Z",
+    "last_login": "2016-12-01T23:59:53.474Z",
+    "email_verified": true
+  },
+  {
+    "user_id": "584a9d13e808bcf75f05f580",
+    "email": "test9999@test.com",
+    "given_name": "Dummy",
+    "family_name": "User",
+    "created_at": "2016-12-09T12:01:23.787Z",
+    "updated_at": "2016-12-09T12:01:23.787Z",
+    "email_verified": false
+  }
+]
 ```
